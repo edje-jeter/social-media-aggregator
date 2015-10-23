@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    {% for tweet in tweets %}
+
+        <article class="post-masonry masonry-item masonry-wide isotope-item" data-menu-order="0">
+            <div class="post-masonry-inner blog-os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s">
+            <a class="post-masonry-content swatch-white" href="blog-post.html">
+            <img alt="some image" src="{{ tweet.profile_image_url.url }}">
+                <div class="post-head small-screen-center">
+                    <h2 class="post-title bordered bordered-small">
+                        {{ tweet.tweet_text }}
+                    </h2>
+                    <small> 
+                        by {{ tweet.screen_name }}, {{ tweet.location }}
+                    </small>
+                </div>
+                    <p class="post-body">
+                        {{ tweet.time_stamp }}<br>
+                        Search Term: {{ tweet.search_term }}
+                    </p>
+            </a>
+            </div>
+        </article>
+
+    {% endfor %}
+
+{% endblock body %}
